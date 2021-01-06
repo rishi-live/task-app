@@ -4,7 +4,7 @@
 // const MongoClient = mongodb.MongoClient;
 // const ObjectID = mongodb.ObjectID;
 
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient, ObjectID, DBRef } = require('mongodb');
 
 const connectionURL = 'mongodb://127.0.0.1:27017';
 const databaseName = 'task-manager';
@@ -89,5 +89,54 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
     // db.collection('tasks').find({ completed: false }).toArray((error, results) => {
     //     console.log(results);
     // })
+
+    // ################################ UPDATE ######################################################
+
+    // db.collection('users').updateOne({
+    //     _id: new ObjectID("5ff47c3cf420fb57bcd1bdb3")
+    // }, {
+    //     // $set: {
+    //     //     name: 'Rishi'
+    //     // }
+    //     $inc: {
+    //         age: 1
+    //     }
+    // }).then((result) => {
+    //     console.log(result);
+    // }).catch((error) => {
+    //     console.log(error);
+    // })
+
+    // db.collection('tasks').updateMany({
+    //     completed: false
+    // }, {
+    //     $set: {
+    //         completed: true
+    //     }
+    // }).then((result) => {
+    //     console.log(result);
+    // }).catch((error) => {
+    //     console.log(error);
+    // })
+
+    //################################## DELETE ##########################################################
+
+    // db.collection('users').deleteMany({
+    //     age: 4
+    // }).then((result) => {
+    //     console.log(result);
+    // }).catch((error) => {
+    //     console.log(error);
+    // })
+
+
+    db.collection('tasks')
+        .deleteOne({
+            description: "Play game"
+        }).then((result) => {
+            console.log(result);
+        }).catch((error) => {
+            console.log(error);
+        })
 
 });
