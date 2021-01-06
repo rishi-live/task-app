@@ -1,0 +1,25 @@
+{
+  "name": "task-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mongodb.js",
+  "dependencies": {
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.10",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishi-live/task-app.git"
+  },
+  "author": "Rishi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishi-live/task-app/issues"
+  },
+  "homepage": "https://github.com/rishi-live/task-app#readme"
+}
