@@ -34,9 +34,9 @@ app.get('/users/:id', async(req, res) => {
     const _id = req.params.id
 
     try {
-        const user = await findById(_id)
+        const user = await User.findById(_id)
         if (!user) {
-            return res.status(404).send()
+            return res.status(404).send(user)
         }
         res.send(user)
     } catch (e) {
