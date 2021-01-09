@@ -23,12 +23,13 @@ const User = require('./models/user')
 
 const main = async() => {
     // doesn't work without id which is object id
-    // const task = await Task.findById('5ff99c90cc38974358a66d6b')
-    // console.log(task.owner)
+
+    // const task = await Task.findById('5ff9dd89cebf7926c4bc1267')
+    // console.log(task)
     // await task.populate('owner').execPopulate()
     // console.log(task.owner)
 
-    // const user = await User.findOne({ email: 'rishi12@gmail.com' })
+    // const user = await User.findOne({ _id: '5ff9dd59cebf7926c4bc1261' })
     // await user.populate('tasks').execPopulate()
     // console.log(user.tasks)
 

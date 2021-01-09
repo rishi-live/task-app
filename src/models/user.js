@@ -48,11 +48,13 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }]
+}, {
+    timestamps: true
 })
 
 userSchema.virtual('tasks', {
     ref: 'Task',
-    localField: 'email',
+    localField: '_id',
     foreignField: 'owner'
 })
 
@@ -68,7 +70,7 @@ userSchema.methods.toJSON = function() {
 userSchema.methods.generateAuthToken = async function() {
     const user = this
         //_id:user._id.toString()
-    const token = jwt.sign({ email: user.email }, 'nodejs')
+    const token = jwt.sign({ _id: user._id }, 'nodejs')
 
     user.tokens = user.tokens.concat({ token })
     await user.save()
@@ -106,7 +108,7 @@ userSchema.pre('save', async function(next) {
 //Delete user task when user is removed
 userSchema.pre('remove', async function(next) {
     const user = this
-    await Task.deleteMany({ owner: user.email })
+    await Task.deleteMany({ owner: user._id })
 
     next()
 })
