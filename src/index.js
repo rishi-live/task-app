@@ -7,21 +7,6 @@ const taskRouter = require('./routers/task')
 const app = express()
 const port = process.env.PORT || 3000
 
-
-// app.use((req, res, next) => {
-//     if (req.method === 'GET') {
-//         res.send("GET request are disabled")
-//     } else {
-//         next()
-//     }
-// })
-
-// app.use((req, res, next) => {
-//     res.status(503).send("Upgrading services")
-// })
-
-
-
 app.use(express.json())
 app.use(userRouter)
 app.use(taskRouter)
@@ -33,29 +18,19 @@ app.listen(port, () => {
     console.log("Server is up on port " + port);
 })
 
-// const bcrypt = require('bcrypt')
+const Task = require('./models/task')
+const User = require('./models/user')
 
-// const myFunction = async() => {
-//     const pass = 'Red12345!'
-//     const hash = await bcrypt.hash(pass, 8)
+const main = async() => {
+    // doesn't work without id which is object id
+    // const task = await Task.findById('5ff99c90cc38974358a66d6b')
+    // console.log(task.owner)
+    // await task.populate('owner').execPopulate()
+    // console.log(task.owner)
 
-//     console.log(hash);
-//     console.log(pass)
+    // const user = await User.findOne({ email: 'rishi12@gmail.com' })
+    // await user.populate('tasks').execPopulate()
+    // console.log(user.tasks)
 
-//     const ismatch = await bcrypt.compare('Red12345!', hash)
-
-//     console.log(ismatch)
-// }
-// myFunction()
-
-// const jwt = require('jsonwebtoken')
-
-// const myFunction = async() => {
-//     const token = jwt.sign({ email: 'asdfg' }, 'nodejs', { expiresIn: '7 days' })
-
-//     console.log(token)
-
-//     const data = jwt.verify(token, 'nodejs')
-//     console.log(data)
-// }
-// myFunction()
+}
+main()
