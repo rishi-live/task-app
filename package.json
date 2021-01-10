@@ -13,10 +13,12 @@
         "sharp": "^0.27.0",
         "validator": "^13.5.2"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "env-cmd": "^10.1.0"
+    },
     "scripts": {
         "start": "node arc/index.js",
-        "dev": "nodemon src/index.js"
+        "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
     },
     "repository": {
         "type": "git",
